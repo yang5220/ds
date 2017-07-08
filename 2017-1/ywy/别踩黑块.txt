@@ -1,0 +1,39 @@
+别踩黑块
+游戏规则：屏幕上面黑白块随机分布，需要将屏幕上面的白块点掉，且前提是不碰到黑块，碰到黑块游戏结束。每正确点掉一个白块会有相应积分，积分满了后赢得游戏，游戏结束。
+1、	每行随机生成白块、位置存储，返回白块位置。
+2、	判断鼠标点击的位置是黑块还是白块。白块分数增加，黑块结束游戏。
+3、	以一个二维数组存储黑白块的位置，再用一个一维数组保存所以黑块的位置
+4、	
+5、	typedef struct _GAME_COORD
+6、	{
+7、		int x;
+8、		int y;
+9、	}GAME_COORD,*PGAME_COORD;
+
+
+GAME_COORD K[5][4];//五排四列的黑白块地址
+10、	GAME_COORD W[5];所有黑块的地址
+11、	
+12、	
+13、	void SetBoundary(int x, int y);
+14、	
+15、	void CreateKuai();//初始化黑白块位置
+16、	
+17、	void ReInit();//点击一次后更新黑白块位置
+18、	
+19、	//判断点击的位置与白块是否重合
+20、	bool Equal(GAME_COORD t1, GAME_COORD t2);
+21、	
+22、	int OnKeyDown(DWORD vk);//每按下一个键并判断后，返回按键信息
+23、	int BlcOrWht(int);//返回按键信息
+24、	
+25、	//计时器到时后，根据按键信息进行下一步处理
+26、	void OnTimer(HWND hwnd, DWORD vk);
+27、	
+28、	
+29、	
+30、	void CreateGame(HWND hwnd,
+31、		DWORD dwInitTimerElapse,
+32、		unsigned int one_level_scores,
+33、		int boundary_x, int boundary_y);
+
